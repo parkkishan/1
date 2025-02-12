@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" href="Travely-logo.png" type="image/icon type">
+    <title>UK27-The Fern</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Ensure everything fits within screen width */
+img, iframe, video {
+    max-width: 100%;
+    height: 25rem;
+    display: block;
+}
+
+/* Flexbox for perfect alignment */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Ensure proper padding & alignment */
+.section {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        a:hover {
+            color: #6120b7;
+        }
+
+        header {
+            position: relative;
+            padding: 0 2rem;
+            z-index: 1000;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav ul {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .navbar .menu {
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .navbar .highlight {
+            display: block;
+            margin-left: 0;
+            margin-right: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(160deg, #6407c7, rgb(5, 5, 5));
+            color: #fff;
+            padding: 0.6rem 3rem;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: scale 0.2s ease;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .highlight:hover {
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+
+        .highlight:active {
+            transform: scale(0.95);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 60px;
+            width: 100%;
+            height: 0;
+            margin-left: -2em;
+            background: rgba(0, 0, 0, 0.439);
+            backdrop-filter: blur(15px);
+            border-radius: 7px;
+            overflow: hidden;
+            display: none;
+            opacity: 0;
+            transition: height 0.3s ease, opacity 0.3s ease;
+        }
+
+        .dropdown-menu ul {
+            padding: 0;
+        }
+
+        .dropdown-menu li {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dropdown-menu .highlight {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dropdown-menu.open {
+            height: auto;
+            opacity: 1;
+            display: block;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            /* Ensure it spans the height of the image */
+            background: linear-gradient(to bottom, transparent 100px, black 450px),
+                linear-gradient(to top, transparent 100px, black 450px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 40px;
+            z-index: 200;
+            left: 30px;
+            right: 20px;
+        }
+
+        .hero h1 {
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #f6f6f6;
+            margin-left: 9px;
+            margin-bottom: 15px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-buttons button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .book-now {
+            background-color: #6407c7;
+            color: #ffffff;
+            font-weight: bold;
+            height: 3.5rem;
+        }
+
+        .add-to-favorites {
+            background-color: #4d4d4d67;
+            height: 3.5rem;
+            color: #ffffff;
+        }
+
+        /* Amenities Section */
+        .amenities {
+            padding: 100px 32px;
+            background-color: #000000;
+            margin-top: 20px;
+        }
+
+        .amenities h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            margin-top: 9rem;
+            color: #fff;
+        }
+
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .amenity {
+            flex: 1 1 calc(33.333% - 20px);
+            /* Three items per row */
+            background-color: #000000;
+            border-radius: 7px;
+            border: 0.1px solid rgb(67, 66, 66);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .amenity h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .amenity p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Featured Hotels Section */
+        .view-gallery-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4d4d4d67;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .view-gallery-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox (Full-Screen Gallery) */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 99999;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 70%;
+            border-radius: 10px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Close Button */
+        .lightbox-close {
+            position: absolute;
+            top: 100px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Navigation Buttons */
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* Hide Images */
+        .hidden-images {
+            display: none;
+        }
+
+
+
+
+
+        @media (max-width: 992px) {
+            .navbar .nav ul {
+                display: none;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            .navbar .menu {
+                display: flex;
+            }
+
+            .navbar .menu i {
+                display: inline-block;
+            }
+
+            .navbar .highlight {
+                display: none;
+            }
+
+            .dropdown-menu {
+                display: block;
+            }
+
+
+            .dropdown-menu .highlight {
+                display: block;
+                margin-top: 1rem;
+            }
+        }
+
+
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 96%;
+                display: flex;
+                justify-content: space-between;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 50px 20px;
+                min-height: 180px;
+                border-radius: 0;
+                border-top: none;
+                box-shadow: none;
+                z-index: 9999;
+            }
+
+
+
+
+            .hero-buttons .book-now {
+                flex: 1;
+                padding: 19px;
+                width: 15rem;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+
+            .hero-buttons .add-to-favorites {
+                width: 60px;
+                padding: 10px;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+
+
+        .view-gallery-btn {
+            bottom: 8.9rem;
+            right: 1.7rem;
+
+
+        }
+
+
+
+        .view-more-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #6407c7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+.view-more-btn:hover {
+    background: #1c0238;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 99999;
+}
+
+.modal-content {
+    background: rgb(10, 10, 10);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    background: #6407c7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Amenities Grid */
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    text-align: center;
+    margin: 50px 0;
+    padding: 10px;
+}
+
+/* Ensuring Text is Readable */
+.amenities-grid div {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .view-more-btn, .close-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .amenities-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+}
+
+        /* Footer */
+        footer {
+            padding:  6rem;
+            height: 19rem;
+            text-align: center;
+            background-color: #000;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .price {
+            font-size: 30px;
+        }
+
+        .mobile-line {
+            border: none;
+            margin-left: 9px;
+            border-top: 1px solid rgba(128, 128, 128, 0.337);
+            width: 90%;
+            margin: 1rem 6px;
+            display: none;
+            /* Hidden by default */
+        }
+
+        /* Only visible on mobile screens */
+        @media (max-width: 768px) {
+            .mobile-line {
+                display: block;
+            }
+        }
+
+
+        .map-container {
+    width: 400px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    position: relative;
+}
+
+/* Full 360° View */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Desktop: Map on the right */
+@media (min-width: 1024px) {
+    .desktop-map {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: block;
+    }
+
+    .mobile-map {
+        display: none;
+    }
+}
+
+/* Mobile: Map below hero */
+@media (max-width: 1023px) {
+    .desktop-map {
+        display: none;
+    }
+
+    .mobile-map {
+        display: block;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <img src="Travely-logo.png" style="height: 4rem ;" alt="">
+            <div class="logo">
+
+                <a href="index.html" style="margin: -3rem;">Travely</a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Restaurants</a></li>
+                    <li><a href="Bio-web - Copy/index.html">About-Us</a></li>
+                </ul>
+                <div class="menu"><i class="fa-solid fa-bars"></i></div>
+            </div>
+            <a href="#" class="highlight">Sign-in</a>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Restaurants</a></li>
+                    <li><a href="Bio-web - Copy/index.html">About-Us</a></li>
+                    <li><a href="#" class="highlight">Sign-in</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="uk27.jpg" alt="Luxury Hotel">
+        <div class="hero-content">
+            <h1>UK 27 - The Fern</h1>
+            <p style="margin-left: 4px;">4.3 • 5-Star • Belgaum</p>
+            <hr class="mobile-line">
+
+            <p class="price" style="margin-left: 3px;">Starting from <b style="font-size: 18px;">₹5,772/night</b></p>
+
+            <div class="hero-buttons">
+                <a
+                    href="https://www.google.com/travel/search?q=UK27%20The%20Fern%20%20%20An%20Ecotel%20Hotel%2C%20Belagavi&qs=OAA&ts=CAEaGhIYEhIKBwjpDxACGBYSBwjpDxACGBcyAggCKgcKBToDSU5S&ictx=3&ap=KigKEgkT_5fqLb8vQBHU3AClyaBSQBISCc8lgiW0wC9AEdTcgALsoFJAMAC6AQhvdmVydmlldw">
+                    <button class="book-now">Book Now</button>
+                </a>
+                <button class="add-to-favorites"
+                    onclick="addToFavorites('UK 27 - The Fern', '4.3 • 5-Star • Belgaum', '../Images/uk27.jpg', 'uk27.html')">♡</button>
+
+            </div>
+        </div>
+        
+    </div>
+
+
+    <!-- Map Container (Desktop) -->
+    <div class="map-container desktop-map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!4v1739353084322!6m8!1m7!1sikV_5gChAnSkyPdkMsDLxA!2m2!1d15.87483916984176!2d74.5130244136376!3f104.09200921258012!4f11.391237198845374!5f0.7820865974627469"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
+
+
+<!-- Map Container (Desktop) -->
+<div class="map-container desktop-map">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!4v1739353084322!6m8!1m7!1sikV_5gChAnSkyPdkMsDLxA!2m2!1d15.87483916984176!2d74.5130244136376!3f104.09200921258012!4f11.391237198845374!5f0.7820865974627469"
+        allowfullscreen 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        style="width: 100%; height: 100%; border-radius: 12px; border: none;">
+    </iframe>
+</div>
+
+<!-- Map Container (Mobile) -->
+<div class="map-container mobile-map">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!4v1739353084322!6m8!1m7!1sikV_5gChAnSkyPdkMsDLxA!2m2!1d15.87483916984176!2d74.5130244136376!3f104.09200921258012!4f11.391237198845374!5f0.7820865974627469"
+        allowfullscreen 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        style="width: 80%; height: 150%; border-radius: 12px; margin-left: 2rem; border: none;">
+    </iframe>
+</div>
+
+
+    <!-- Amenities Section -->
+    <div class="amenities">
+        <h2>Amenities & Services</h2>
+        <div class="amenities-list">
+            <div class="amenity">
+                <h3>Free Wi-Fi</h3>
+                <p>Enjoy high-speed internet access throughout the property.</p>
+            </div>
+            <div class="amenity">
+                <h3>Swimming Pool</h3>
+                <p>Relax in our outdoor pool with a stunning view.</p>
+            </div>
+            <div class="amenity">
+                <h3>Spa & Wellness</h3>
+                <p>Indulge in relaxing spa treatments and massages.</p>
+            </div>
+            <div class="amenity">
+                <h3>Fitness Center</h3>
+                <p>Stay active with our state-of-the-art gym facilities.</p>
+            </div>
+            <div class="amenity">
+                <h3>Restaurant</h3>
+                <p>Savor delicious cuisines from our in-house chefs.</p>
+            </div>
+            <div class="amenity">
+                <h3>Free Parking</h3>
+                <p>Secure and convenient parking for all guests.</p>
+            </div>
+            <button class="view-more-btn" onclick="openModal()">View More</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal" id="amenitiesModal">
+        <div class="modal-content">
+            <h2>More Amenities</h2>
+            <div class="amenities-grid">
+                <p><strong>Fitness Center</strong></p>
+                <p><strong>Restaurant</strong></p>
+                <p><strong>Free Parking</strong></p>
+                <p><strong>Conference Room</strong></p>
+                <p><strong>Laundry Service</strong></p>
+                <p><strong>24/7 Reception</strong></p>
+            </div>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+
+
+    <!-- Lightbox (Hidden by default) -->
+
+    <button class="view-gallery-btn">📷</button>
+
+    <!-- Lightbox (Hidden by default) -->
+    <div class="lightbox">
+        <span class="lightbox-close" onclick="closeGallery()">&times;</span>
+        <span class="lightbox-prev" onclick="prevImage()">&#10094;</span>
+        <img id="lightbox-img" src="" alt="Expanded Image">
+        <span class="lightbox-next" onclick="nextImage()">&#10095;</span>
+    </div>
+
+
+
+  
+
+
+     
+
+
+    <footer>
+        <p>&copy; 2025 Travely. <br> Developed by Kishan Miskin<br>All Rights Reserved.</p>
+    </footer>
+</body>
+<script>
+
+
+
+
+
+    function openModal() {
+        document.getElementById('amenitiesModal').classList.add('show');
+    }
+
+    function closeModal() {
+        document.getElementById('amenitiesModal').classList.remove('show');
+    }
+
+
+
+
+
+
+
+    // Nav Bar
+    const toggleBtn = document.querySelector('.menu');
+    const toggleBtnIcon = toggleBtn.querySelector('i');
+    const dropDownMenu = document.querySelector('.dropdown-menu');
+
+    toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle('open');
+        const isOpen = dropDownMenu.classList.contains('open');
+        toggleBtnIcon.classList.toggle('fa-bars', !isOpen);
+        toggleBtnIcon.classList.toggle('fa-xmark', isOpen);
+    };
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".card");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        cards.forEach((card) => observer.observe(card));
+    });
+
+    let currentImageIndex = 0;
+    const imageSources = [
+        "../Images/uk27.jpg",
+        "../Images/uk272.jpg",
+        "../Images/uk273.jpg",
+        "../Images/uk274.jpg",
+        "../Images/uk276.jpg"
+    ];
+
+    const viewGalleryBtn = document.querySelector(".view-gallery-btn");
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    // Open Gallery on Button Click
+    viewGalleryBtn.addEventListener("click", () => {
+        currentImageIndex = 0;
+        lightboxImg.src = imageSources[currentImageIndex];
+        lightbox.classList.add("active");
+    });
+
+    // Close Gallery
+    function closeGallery() {
+        lightbox.classList.remove("active");
+    }
+
+    // Navigate Previous
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
+        lightboxImg.src = imageSources[currentImageIndex];
+    }
+
+    // Navigate Next
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+        lightboxImg.src = imageSources[currentImageIndex];
+    }
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            closeGallery();
+        }
+    });
+
+
+
+
+
+
+
+
+
+    function addToFavorites(hotelName, hotelPage) {
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Avoid duplicate entries
+        if (!favorites.some(hotel => hotel.name === hotelName)) {
+            favorites.push({ name: hotelName, link: hotelPage });
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        }
+
+        // Redirect to favorites page
+        window.location.href = "favorite.html";
+    }
+</script>
+</script>
+
+</html>
